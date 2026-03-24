@@ -20,7 +20,7 @@ export function MorningProtocol({
 }: MorningProtocolProps) {
   const [displayedText, setDisplayedText] = useState("");
   const [isTyping, setIsTyping] = useState(true);
-  const [mathProblem, setMathProblem] = useState({ a: 0, b: 0, answer: 0 });
+  const [mathProblem, setMathProblem] = useState<{ a: number; b: number; answer: number } | null>(null);
   const [userAnswer, setUserAnswer] = useState("");
   const [showChallenge, setShowChallenge] = useState(false);
 
@@ -47,7 +47,7 @@ export function MorningProtocol({
   }, [message]);
 
   function handleConfirm() {
-    if (parseInt(userAnswer) === mathProblem.answer) {
+    if (mathProblem && parseInt(userAnswer) === mathProblem.answer) {
       onConfirm();
     }
   }
@@ -109,7 +109,7 @@ export function MorningProtocol({
                 </p>
                 <div className="flex items-center justify-center gap-3">
                   <span className="font-mono text-3xl text-[#C9A84C] font-bold">
-                    {mathProblem.a} + {mathProblem.b} =
+                    {mathProblem?.a ?? "?"} + {mathProblem?.b ?? "?"} =
                   </span>
                   <input
                     type="number"

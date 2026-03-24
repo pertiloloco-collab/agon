@@ -24,6 +24,8 @@ import {
   BarChart3,
   Settings,
   Flame,
+  Zap,
+  Gem,
 } from "lucide-react";
 import { useAppStore } from "@/lib/store";
 
@@ -35,6 +37,8 @@ const mainNav = [
 ];
 
 const moreNav = [
+  { href: "/dashboard/habits", label: "Habits", icon: Zap },
+  { href: "/dashboard/forge", label: "Forge", icon: Gem },
   { href: "/dashboard/debrief", label: "Evening Debrief", icon: Moon },
   { href: "/dashboard/sanctions", label: "Sanctions", icon: Skull },
   { href: "/dashboard/why-vault", label: "Why Vault", icon: Heart },

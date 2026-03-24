@@ -75,7 +75,7 @@ export function TodaySnapshot({ tasks, nextDeadline }: TodaySnapshotProps) {
   const deadline = nextDeadline ?? getDefaultDeadline();
   const completedCount = items.filter((t) => t.completed).length;
 
-  const [timeLeft, setTimeLeft] = useState<string>("");
+  const [timeLeft, setTimeLeft] = useState<string | null>(null);
 
   useEffect(() => {
     function update() {
@@ -145,7 +145,7 @@ export function TodaySnapshot({ tasks, nextDeadline }: TodaySnapshotProps) {
       <div className="mt-4 flex items-center gap-2 rounded-lg border border-[#1F1F1F] bg-[#0A0A0A] px-3 py-2">
         <Clock className="h-4 w-4 text-[#C9A84C]" />
         <span className="text-xs text-[#A3A3A3]">Day ends in</span>
-        <span className="font-mono text-sm font-bold text-[#C9A84C]">{timeLeft}</span>
+        <span className="font-mono text-sm font-bold text-[#C9A84C]">{timeLeft ?? "--:--:--"}</span>
       </div>
 
       {/* Quick actions */}

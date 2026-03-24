@@ -1,6 +1,5 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Flame, Trophy } from "lucide-react";
 
@@ -55,24 +54,19 @@ function generateMockData(): HeatmapDay[] {
 
 const DAY_LABELS = ["M", "", "W", "", "F", "", "S"];
 
+// Pre-compute mock data deterministically (seeded random is stable across server/client)
+const STATIC_MOCK_DATA = generateMockData();
+
 export function StreakHeatmap(props: StreakHeatmapProps) {
-  const [mockData, setMockData] = useState<HeatmapDay[]>([]);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMockData(generateMockData());
-    setMounted(true);
-  }, []);
-
-  const data = props.data ?? mockData;
+  const data = props.data ?? STATIC_MOCK_DATA;
   const currentStreak = props.currentStreak ?? 12;
   const longestStreak = props.longestStreak ?? 34;
 
   // Organize data into columns (weeks) with 7 rows (Mon-Sun)
   const columns: (HeatmapDay | null)[][] = [];
-  if (mounted && data.length > 0) {
-    const firstDate = new Date(data[0].date + "T00:00:00");
-    const dayOfWeek = (firstDate.getDay() + 6) % 7; // Mon=0
+  if (data.length > 0) {
+    const firstDate = new Date(data[0].date + "T00:00:00Z");
+    const dayOfWeek = (firstDate.getUTCDay() + 6) % 7; // Mon=0
     const padded: (HeatmapDay | null)[] = [
       ...Array.from({ length: dayOfWeek }, () => null),
       ...data,

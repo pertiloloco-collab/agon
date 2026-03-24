@@ -16,6 +16,8 @@ import {
   ChevronLeft,
   ChevronRight,
   Flame,
+  Zap,
+  Gem,
 } from "lucide-react";
 import { useAppStore } from "@/lib/store";
 
@@ -24,6 +26,8 @@ const navItems = [
   { href: "/dashboard/contract", label: "Daily Contract", icon: ScrollText },
   { href: "/dashboard/workout", label: "Workout", icon: Dumbbell },
   { href: "/dashboard/chat", label: "Mentor", icon: MessageSquare },
+  { href: "/dashboard/habits", label: "Habits", icon: Zap },
+  { href: "/dashboard/forge", label: "Forge", icon: Gem },
   { href: "/dashboard/debrief", label: "Debrief", icon: Moon },
   { href: "/dashboard/sanctions", label: "Sanctions", icon: Skull },
   { href: "/dashboard/why-vault", label: "Why Vault", icon: Heart },

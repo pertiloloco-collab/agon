@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";
@@ -59,7 +59,7 @@ export default function OnboardingPage() {
     whyText: "",
     wakeUpTime: "05:00",
     timezone: "Europe/Paris",
-    startDate: new Date().toISOString().split("T")[0],
+    startDate: "2026-03-24",
     accountabilityLevel: "emotional_warfare",
     sanctions: {
       missedWorkout: "Cold shower \u2014 video proof required",

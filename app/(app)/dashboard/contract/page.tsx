@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { format } from "date-fns";
 import { ContractCard, ContractTask } from "@/components/contract/contract-card";
 
@@ -76,7 +76,11 @@ export default function ContractPage() {
     );
   };
 
-  const today = format(new Date(), "EEEE, MMMM do, yyyy");
+  const [today, setToday] = useState<string>("");
+
+  useEffect(() => {
+    setToday(format(new Date(), "EEEE, MMMM do, yyyy"));
+  }, []);
 
   return (
     <div className="mx-auto max-w-2xl px-4 py-8">
@@ -85,7 +89,7 @@ export default function ContractPage() {
           DAILY CONTRACT
         </h1>
         <p className="mt-1 font-mono text-xs text-[#525252] uppercase tracking-widest">
-          {today}
+          {today || "\u00A0"}
         </p>
       </div>
 
