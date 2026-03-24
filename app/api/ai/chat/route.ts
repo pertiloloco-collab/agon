@@ -1,6 +1,8 @@
 import { anthropic, FAST_MODEL } from "@/lib/ai/client";
 import { buildChatSystemPrompt } from "@/lib/ai/prompts";
 
+export const runtime = "edge";
+
 export async function POST(request: Request) {
   try {
     const { messages, userContext } = await request.json();

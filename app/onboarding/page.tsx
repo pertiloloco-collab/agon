@@ -10,6 +10,7 @@ import { StepWhy } from "@/components/onboarding/step-why";
 import { StepSchedule } from "@/components/onboarding/step-schedule";
 import { StepAccountability } from "@/components/onboarding/step-accountability";
 import { StepSanctions } from "@/components/onboarding/step-sanctions";
+import { StepVoice } from "@/components/onboarding/step-voice";
 import { StepOath } from "@/components/onboarding/step-oath";
 
 export interface OnboardingData {
@@ -32,7 +33,7 @@ export interface OnboardingData {
   };
 }
 
-const TOTAL_STEPS = 7;
+const TOTAL_STEPS = 8;
 
 const stepLabels = [
   "Welcome",
@@ -41,6 +42,7 @@ const stepLabels = [
   "Schedule",
   "Accountability",
   "Sanctions",
+  "Voice",
   "The Oath",
 ];
 
@@ -170,6 +172,8 @@ export default function OnboardingPage() {
           />
         );
       case 6:
+        return <StepVoice data={data} onChange={updateData} />;
+      case 7:
         return <StepOath data={data} onComplete={handleComplete} />;
       default:
         return null;
