@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-body);
+  --font-mono: var(--font-mono);
+  --font-heading: var(--font-display);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+  --color-gold: oklch(0.743 0.117 89.511);
+  --color-gold-light: oklch(0.869 0.084 95.025);
+  --color-gold-dark: oklch(0.567 0.090 90.035);
+  --color-success: oklch(0.723 0.192 149.579);
+  --color-warning: oklch(0.769 0.165 70.080);
+  --color-danger: oklch(0.577 0.215 27.325);
+  --color-danger-dark: oklch(0.400 0.164 29.234);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   AGON — Dark Only Theme
+   ═══════════════════════════════════════════════════════════ */
+
+:root {
+  /* Core palette */
+  --background: oklch(0.115 0 0);
+  --foreground: oklch(0.970 0 0);
+
+  /* Card */
+  --card: oklch(0.178 0 0);
+  --card-foreground: oklch(0.970 0 0);
+
+  /* Popover */
+  --popover: oklch(0.178 0 0);
+  --popover-foreground: oklch(0.970 0 0);
+
+  /* Primary — Gold */
+  --primary: oklch(0.743 0.117 89.511);
+  --primary-foreground: oklch(0.115 0 0);
+
+  /* Secondary */
+  --secondary: oklch(0.218 0 0);
+  --secondary-foreground: oklch(0.970 0 0);
+
+  /* Muted */
+  --muted: oklch(0.218 0 0);
+  --muted-foreground: oklch(0.715 0 0);
+
+  /* Accent — Gold */
+  --accent: oklch(0.743 0.117 89.511);
+  --accent-foreground: oklch(0.115 0 0);
+
+  /* Destructive */
+  --destructive: oklch(0.577 0.215 27.325);
+
+  /* Borders & Input */
+  --border: oklch(0.239 0 0);
+  --input: oklch(0.239 0 0);
+  --ring: oklch(0.743 0.117 89.511);
+
+  /* Charts */
+  --chart-1: oklch(0.743 0.117 89.511);
+  --chart-2: oklch(0.723 0.192 149.579);
+  --chart-3: oklch(0.869 0.084 95.025);
+  --chart-4: oklch(0.577 0.215 27.325);
+  --chart-5: oklch(0.769 0.165 70.080);
+
+  /* Radius */
+  --radius: 0.625rem;
+
+  /* Sidebar */
+  --sidebar: oklch(0.145 0 0);
+  --sidebar-foreground: oklch(0.970 0 0);
+  --sidebar-primary: oklch(0.743 0.117 89.511);
+  --sidebar-primary-foreground: oklch(0.115 0 0);
+  --sidebar-accent: oklch(0.218 0 0);
+  --sidebar-accent-foreground: oklch(0.970 0 0);
+  --sidebar-border: oklch(0.239 0 0);
+  --sidebar-ring: oklch(0.743 0.117 89.511);
+
+  /* AGON custom properties */
+  --font-display: 'Cinzel', serif;
+  --font-body: 'DM Sans', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --color-card-hover: oklch(0.218 0 0);
+  --color-border-gold: oklch(0.743 0.117 89.511 / 30%);
+  --color-text-muted: oklch(0.439 0 0);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Base layer
+   ═══════════════════════════════════════════════════════════ */
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    font-family: var(--font-body);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   AGON Utility Classes
+   ═══════════════════════════════════════════════════════════ */
+
+.gold-glow {
+  box-shadow:
+    0 0 15px rgba(201, 168, 76, 0.15),
+    0 0 30px rgba(201, 168, 76, 0.08),
+    0 0 60px rgba(201, 168, 76, 0.04);
+}
+
+.gold-glow-sm {
+  box-shadow:
+    0 0 8px rgba(201, 168, 76, 0.12),
+    0 0 16px rgba(201, 168, 76, 0.06);
+}
+
+.gold-glow-lg {
+  box-shadow:
+    0 0 20px rgba(201, 168, 76, 0.2),
+    0 0 40px rgba(201, 168, 76, 0.1),
+    0 0 80px rgba(201, 168, 76, 0.05);
+}
+
+.text-gold {
+  color: #C9A84C;
+}
+
+.text-gold-light {
+  color: #E5D494;
+}
+
+.text-gold-dark {
+  color: #8B7432;
+}
+
+.border-gold {
+  border-color: rgba(201, 168, 76, 0.3);
+}
+
+.bg-card-hover {
+  background-color: #1A1A1A;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Scrollbar Styling
+   ═══════════════════════════════════════════════════════════ */
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #1F1F1F #050505;
+}
+
+*::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #050505;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #1F1F1F;
+  border-radius: 3px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: #333333;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Selection styling
+   ═══════════════════════════════════════════════════════════ */
+
+::selection {
+  background-color: rgba(201, 168, 76, 0.3);
+  color: #F5F5F5;
+}
