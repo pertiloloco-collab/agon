@@ -53,6 +53,7 @@ function CustomTooltip({
 
 export function BodyTimeline({ stats }: BodyTimelineProps) {
   const data = stats ?? defaultStats;
+  const hasEnoughData = data.length >= 2;
 
   return (
     <motion.div
@@ -65,64 +66,70 @@ export function BodyTimeline({ stats }: BodyTimelineProps) {
         BODY TIMELINE
       </h2>
 
-      <div className="h-64 w-full">
-        <ResponsiveContainer width="100%" height="100%">
-          <LineChart data={data} margin={{ top: 5, right: 10, left: -10, bottom: 5 }}>
-            <CartesianGrid
-              strokeDasharray="3 3"
-              stroke="#1F1F1F"
-              vertical={false}
-            />
-            <XAxis
-              dataKey="date"
-              tick={{ fill: "#525252", fontSize: 11 }}
-              axisLine={{ stroke: "#1F1F1F" }}
-              tickLine={false}
-            />
-            <YAxis
-              yAxisId="weight"
-              tick={{ fill: "#525252", fontSize: 11 }}
-              axisLine={false}
-              tickLine={false}
-              domain={["dataMin - 5", "dataMax + 5"]}
-            />
-            <YAxis
-              yAxisId="bf"
-              orientation="right"
-              tick={{ fill: "#525252", fontSize: 11 }}
-              axisLine={false}
-              tickLine={false}
-              domain={["dataMin - 2", "dataMax + 2"]}
-            />
-            <Tooltip content={<CustomTooltip />} />
-            <Line
-              yAxisId="weight"
-              type="monotone"
-              dataKey="weight"
-              stroke="#C9A84C"
-              strokeWidth={2}
-              dot={{ fill: "#C9A84C", r: 3, strokeWidth: 0 }}
-              activeDot={{ fill: "#E8D48B", r: 5, strokeWidth: 0 }}
-            />
-            <Line
-              yAxisId="bf"
-              type="monotone"
-              dataKey="bodyFat"
-              stroke="#A3A3A3"
-              strokeWidth={2}
-              strokeDasharray="4 4"
-              dot={{ fill: "#A3A3A3", r: 3, strokeWidth: 0 }}
-              activeDot={{ fill: "#F5F5F5", r: 5, strokeWidth: 0 }}
-            />
-          </LineChart>
-        </ResponsiveContainer>
-      </div>
+      {hasEnoughData ? (
+        <div className="h-64 w-full">
+          <ResponsiveContainer width="100%" height="100%">
+            <LineChart data={data} margin={{ top: 5, right: 10, left: -10, bottom: 5 }}>
+              <CartesianGrid
+                strokeDasharray="3 3"
+                stroke="#1F1F1F"
+                vertical={false}
+              />
+              <XAxis
+                dataKey="date"
+                tick={{ fill: "#525252", fontSize: 11 }}
+                axisLine={{ stroke: "#1F1F1F" }}
+                tickLine={false}
+              />
+              <YAxis
+                yAxisId="weight"
+                tick={{ fill: "#525252", fontSize: 11 }}
+                axisLine={false}
+                tickLine={false}
+              />
+              <YAxis
+                yAxisId="bf"
+                orientation="right"
+                tick={{ fill: "#525252", fontSize: 11 }}
+                axisLine={false}
+                tickLine={false}
+              />
+              <Tooltip content={<CustomTooltip />} />
+              <Line
+                yAxisId="weight"
+                type="monotone"
+                dataKey="weight"
+                stroke="#C9A84C"
+                strokeWidth={2}
+                dot={{ fill: "#C9A84C", r: 3, strokeWidth: 0 }}
+                activeDot={{ fill: "#E8D48B", r: 5, strokeWidth: 0 }}
+              />
+              <Line
+                yAxisId="bf"
+                type="monotone"
+                dataKey="bodyFat"
+                stroke="#A3A3A3"
+                strokeWidth={2}
+                strokeDasharray="4 4"
+                dot={{ fill: "#A3A3A3", r: 3, strokeWidth: 0 }}
+                activeDot={{ fill: "#F5F5F5", r: 5, strokeWidth: 0 }}
+              />
+            </LineChart>
+          </ResponsiveContainer>
+        </div>
+      ) : (
+        <div className="flex h-64 flex-col items-center justify-center text-center">
+          <p className="font-mono text-3xl font-bold text-[#C9A84C]">{data[0]?.weight ?? 91}kg</p>
+          <p className="mt-1 text-sm text-[#525252]">Starting weight</p>
+          <p className="mt-4 text-xs text-[#525252]">Your body transformation chart will appear here as you log measurements.</p>
+        </div>
+      )}
 
       {/* Legend */}
       <div className="mt-3 flex items-center justify-center gap-6">
         <div className="flex items-center gap-2">
           <div className="h-0.5 w-4 rounded bg-[#C9A84C]" />
-          <span className="text-xs text-[#A3A3A3]">Weight (lbs)</span>
+          <span className="text-xs text-[#A3A3A3]">Weight (kg)</span>
         </div>
         <div className="flex items-center gap-2">
           <div className="h-0.5 w-4 rounded border-t border-dashed border-[#A3A3A3]" />
