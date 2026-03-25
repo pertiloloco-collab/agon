@@ -13,12 +13,12 @@ interface HeroBannerProps {
 }
 
 const defaultProps: Required<HeroBannerProps> = {
-  dayNumber: 47,
+  dayNumber: 1,
   totalDays: 365,
   phaseName: "Foundation",
   phaseNumber: 1,
-  currentStreak: 12,
-  honorScore: 78,
+  currentStreak: 0,
+  honorScore: 0,
 };
 
 export function HeroBanner(props: HeroBannerProps) {

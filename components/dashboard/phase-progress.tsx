@@ -17,7 +17,7 @@ const phases = [
 
 export function PhaseProgress({
   currentPhase = 1,
-  weekInPhase = 5,
+  weekInPhase = 1,
   totalWeeksInPhase = 12,
 }: PhaseProgressProps) {
   const phaseProgress = weekInPhase / totalWeeksInPhase;

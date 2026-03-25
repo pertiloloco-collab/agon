@@ -22,16 +22,7 @@ interface BodyTimelineProps {
 }
 
 const defaultStats: BodyStat[] = [
-  { date: "Jan 1", weight: 205, bodyFat: 22 },
-  { date: "Jan 15", weight: 203, bodyFat: 21.5 },
-  { date: "Feb 1", weight: 200, bodyFat: 20.8 },
-  { date: "Feb 15", weight: 198, bodyFat: 19.9 },
-  { date: "Mar 1", weight: 196, bodyFat: 19.2 },
-  { date: "Mar 15", weight: 194, bodyFat: 18.5 },
-  { date: "Apr 1", weight: 193, bodyFat: 17.8 },
-  { date: "Apr 15", weight: 191, bodyFat: 17.1 },
-  { date: "May 1", weight: 190, bodyFat: 16.5 },
-  { date: "May 15", weight: 189, bodyFat: 15.8 },
+  { date: "Day 1", weight: 91, bodyFat: 22 },
 ];
 
 function CustomTooltip({

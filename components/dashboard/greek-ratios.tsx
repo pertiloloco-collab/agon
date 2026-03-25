@@ -14,9 +14,9 @@ interface GreekRatiosProps {
 }
 
 const defaults: Required<GreekRatiosProps> = {
-  shoulderToWaist: { current: 1.52, target: 1.618 },
-  chestWaistDiff: { current: 8.5, target: 11 },
-  armNeck: { current: 0.94, target: 1.0 },
+  shoulderToWaist: { current: 0, target: 1.618 },
+  chestWaistDiff: { current: 0, target: 11 },
+  armNeck: { current: 0, target: 1.0 },
 };
 
 interface RingProps {

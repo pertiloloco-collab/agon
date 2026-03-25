@@ -49,11 +49,11 @@ const categoryConfig: Record<
 };
 
 const defaultTasks: Task[] = [
-  { id: "1", title: "Push Day — Chest, Shoulders, Triceps", category: "workout", completed: true },
-  { id: "2", title: "Hit protein target (185g)", category: "nutrition", completed: true },
-  { id: "3", title: "Cold shower (3 min)", category: "habit", completed: false },
-  { id: "4", title: "Evening reflection journal", category: "mindset", completed: false },
-  { id: "5", title: "10,000 steps", category: "habit", completed: false },
+  { id: "1", title: "Upper A — Bench, Row, OHP, Pulldown", category: "workout", completed: false },
+  { id: "2", title: "Hit protein target (160g)", category: "nutrition", completed: false },
+  { id: "3", title: "Drink 3L water", category: "habit", completed: false },
+  { id: "4", title: "Take creatine (5g)", category: "habit", completed: false },
+  { id: "5", title: "Sign your first contract", category: "mindset", completed: false },
 ];
 
 function getDefaultDeadline(): Date {

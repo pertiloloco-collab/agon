@@ -59,8 +59,8 @@ const STATIC_MOCK_DATA = generateMockData();
 
 export function StreakHeatmap(props: StreakHeatmapProps) {
   const data = props.data ?? STATIC_MOCK_DATA;
-  const currentStreak = props.currentStreak ?? 12;
-  const longestStreak = props.longestStreak ?? 34;
+  const currentStreak = props.currentStreak ?? 0;
+  const longestStreak = props.longestStreak ?? 0;
 
   // Organize data into columns (weeks) with 7 rows (Mon-Sun)
   const columns: (HeatmapDay | null)[][] = [];
