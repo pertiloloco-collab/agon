@@ -122,19 +122,18 @@ export default function OnboardingPage() {
   const handleComplete = async () => {
     setIsSubmitting(true);
     try {
-      const res = await fetch("/api/auth/complete-onboarding", {
+      await fetch("/api/auth/complete-onboarding", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
-      if (res.ok) {
-        router.push("/dashboard");
-      }
     } catch {
-      // allow retry
-    } finally {
-      setIsSubmitting(false);
+      // Non-blocking — still redirect even if API call fails
     }
+    // Always redirect after a short delay for the animation
+    setTimeout(() => {
+      router.push("/dashboard");
+    }, 2000);
   };
 
   const slideVariants = {
